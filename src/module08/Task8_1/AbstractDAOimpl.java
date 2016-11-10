@@ -1,4 +1,4 @@
-package Module8.Task8_1;
+package module08.Task8_1;
 
 import java.util.List;
 import java.util.Stack;
