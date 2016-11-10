@@ -14,6 +14,8 @@ public class Main {
 
         dao.deleteById(4);
 
+
+        
         dao.getAll();
 
     }
