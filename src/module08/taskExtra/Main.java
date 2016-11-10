@@ -13,10 +13,7 @@ public class Main {
         dao.getById(4);
 
         dao.deleteById(4);
-
-
-        
-        dao.getAll();
+          dao.getAll();
 
     }
 
