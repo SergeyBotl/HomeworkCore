@@ -1,6 +1,7 @@
-package Module7.Task7_3;
+package Module07.Task7_3;
 
-import Module7.Currency;
+
+import Module07.Currency;
 
 public class MainTreeSet {
     public static void main(String[] args) {

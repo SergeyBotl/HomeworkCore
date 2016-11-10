@@ -1,7 +1,7 @@
-package module9;
+package module09;
 
-import Module7.*;
-import Module7.Currency;
+import Module07.*;
+import Module07.Currency;
 
 import java.util.*;
 import java.util.stream.Collectors;

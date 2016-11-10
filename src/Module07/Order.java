@@ -1,4 +1,4 @@
-package Module7;
+package Module07;
 
 public class Order implements Comparable<Order> {
     private long id;

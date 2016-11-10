@@ -1,10 +1,10 @@
-package Module7.Task7_3;
+package Module07.Task7_3;
 
-import Module7.Controller;
-import Module7.Currency;
-import Module7.Order;
+import Module07.*;
+import Module07.Currency;
 
 import java.util.*;
+
 
 public class TreeSetController {
     Controller controller = new Controller();
@@ -52,5 +52,6 @@ public class TreeSetController {
             System.out.println(order);
         }
     }
+
 
 }

@@ -1,7 +1,7 @@
-package module9;
+package module09;
 
-import static Module7.Currency.UAH;
-import static Module7.Currency.USD;
+import static Module07.Currency.UAH;
+import static Module07.Currency.USD;
 
 public class Main {
     public static void main(String[] args) {

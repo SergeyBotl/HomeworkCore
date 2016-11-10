@@ -1,4 +1,4 @@
-package Module7;
+package Module07;
 
 public enum Currency {
     USD, UAH
