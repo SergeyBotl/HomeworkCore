@@ -29,7 +29,7 @@ public class UserDAO extends AbstractDAOimpl {
     }
 
 
-    
+
     List<User> getAll() {
         System.out.println("\nGet all");
         out.forEach(System.out::println);

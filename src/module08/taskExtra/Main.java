@@ -10,7 +10,7 @@ public class Main {
         dao.save(new User(3, "Den"));
         dao.save(new User(4, "jhj"));
 
-     dao.getById(4);
+        dao.getById(4);
 
         dao.deleteById(4);
 
