@@ -6,15 +6,15 @@ import java.util.List;
 
 public class AbstractDAOimpl implements AbstractDAO<User> {
 
-    List<User> out=new ArrayList<>();
+  private   List<User> out=new ArrayList<>();
 
-   /* public List<User> getOut() {
+    public List<User> getOut() {
         return out;
-    }*/
+    }
 
     @Override
     public void save(User user) {
-
+        out.add(user);
     }
 
     @Override
