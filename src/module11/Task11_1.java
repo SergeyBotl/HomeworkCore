@@ -1,17 +1,44 @@
 package module11;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 public class Task11_1 {
+ private static   File file = new File("src/module11/file.txt");
+
     public static void main(String[] args) {
-        String replace = "333";
-        String toReplace = "---";
-        MyUtils.link = "C:/Users/Sergey/Desktop/file.txt";
-        Map file = MyUtils.readFileMap();
-        String stringFile = MyUtils.replacer(file, replace, toReplace);
 
-        System.out.println(stringFile);
+        Map<String, String> map = new HashMap<>();
+        map.put("to", "totoo");
 
+        String result = replacer(map);
+
+        System.out.println(result);
+   }
+
+    private static String replacer(Map<String, String> map) {
+        String contentFile = MyUtils.fileToString(file);
+        String key, value, line;
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st =new StringTokenizer(contentFile," ");
+        for (Map.Entry entry:map.entrySet()){
+            while (st.hasMoreTokens()){
+                line= st.nextToken();
+                if (line.equals(entry.getKey())){
+                    sb.append(entry.getValue());
+                    sb.append(" ");
+                }else {
+                    sb.append(line);
+                    sb.append(" ");
+                }
+            }
+        }
+        return sb.toString();
     }
+
 }

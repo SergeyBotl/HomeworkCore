@@ -1,15 +1,60 @@
 package module11;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class MyUtils implements Serializable {
 
-    static String link;
+    static File linkFile;
     static StringTokenizer st;
+    private static String line;
+    static StringBuilder sb = new StringBuilder();
+    static BufferedReader br;
 
+    private static boolean createFile(File file) {
+        try {
+            if (file.createNewFile()) {
+                BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+                bw.write(TextFile.text);
+                bw.close();
+                System.out.println("Create file by link: " + file + "\n");
+            }
+            return true;
+        } catch (IOException e) {
+            System.out.println("Wrong create file");
+            return false;
+        }
+
+    }
+
+    static String fileToString(File file) {
+
+        if (!file.exists()) {
+            createFile(file);
+        }
+
+        try {
+            br = new BufferedReader(new FileReader(file));
+            line = br.readLine();
+            while (line != null) {
+                st = new StringTokenizer(line, " ");
+                while (st.hasMoreTokens()) {
+                    line = st.nextToken();
+                    sb.append(line);
+                    sb.append(" ");
+                }
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            }
+            System.out.println(sb);
+
+        } catch (IOException e) {
+            System.out.println("Wrong read file");
+        }
+        return sb.toString();
+    }
+
+//=========================================================================
     static String convert(Map<String, String> map) {
 
         StringBuilder sb = new StringBuilder();
@@ -26,41 +71,19 @@ public class MyUtils implements Serializable {
 
     static void write(String file) throws IOException {
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(link))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(linkFile))) {
             bw.append(file);
             bw.close();
         }
     }
 
 
-    public static String replacer(Map<String, String> map, String replace, String toReplace) {
-        String key, value;
-        StringBuilder sb = new StringBuilder();
-
-        for (Map.Entry entry : map.entrySet()) {
-            key = (String) entry.getKey();
-            if (key != null && key.equals(replace)) {
-                sb.append(toReplace);
-            } else {
-                sb.append(key);
-            }
-            sb.append(" ");
-            value = (String) entry.getValue();
-            if (value != null && value.equals(replace)) {
-                sb.append(toReplace);
-            } else {
-                sb.append(value);
-            }
-            sb.append(System.lineSeparator());
-        }
-        return sb.toString();
-    }
 
     public static Map<String, String> readFileMap() {
         Map<String, String> map = new HashMap<>();
         String key, value;
         try {
-            try (BufferedReader br = new BufferedReader(new FileReader(link))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(linkFile))) {
 
                 String line = br.readLine();
                 while (line != null) {
@@ -87,7 +110,7 @@ public class MyUtils implements Serializable {
 
         StringBuilder sb = new StringBuilder();
         try {
-            try (BufferedReader br = new BufferedReader(new FileReader(link))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(linkFile))) {
                 String line = br.readLine();
                 while (line != null) {
                     st = new StringTokenizer(line, " ");
@@ -116,4 +139,6 @@ public class MyUtils implements Serializable {
         }
         return i;
     }
+
+
 }
