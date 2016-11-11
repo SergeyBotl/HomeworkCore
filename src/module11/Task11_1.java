@@ -23,7 +23,7 @@ public class Task11_1 {
 
     private static String replacer(Map<String, String> map) {
         String contentFile = MyUtils.fileToString(file);
-        String key, value, line;
+        String line;
         StringBuilder sb = new StringBuilder();
         StringTokenizer st =new StringTokenizer(contentFile," ");
         for (Map.Entry entry:map.entrySet()){

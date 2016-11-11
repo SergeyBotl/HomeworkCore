@@ -2,29 +2,53 @@ package module11;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 public class Task11_2 {
+    private static File file = new File("src/module11/file2.txt");
+
     public static void main(String[] args) {
-        String replace = "333";
-        String toReplace = "---";
-        MyUtils.linkFile = new File("src/module11/file.txt");
-        Map content = MyUtils.readFileMap();
-        //String stringContentReplace = MyUtils.replacer(content, replace, toReplace);
 
-       /* try {
-            MyUtils.write(stringContentReplace);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Map<String, String> map = new HashMap<>();
+        map.put("totoo", "to");
 
-        System.out.println(stringContentReplace);
-*/
+        File file1 = fileContentReplacer(map);
+        String result = MyUtils.fileToString(file1);
+        System.out.println(result);
+
+
     }
 
-    File fileContentReplacer(Map<String, String> map){
+    private static File fileContentReplacer(Map<String, String> map) {
+        String contentFile = MyUtils.fileToString(file);
+        String line;
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st = new StringTokenizer(contentFile, " ");
+        for (Map.Entry entry : map.entrySet()) {
+            while (st.hasMoreTokens()) {
+                line = st.nextToken();
+                if (line.equals(entry.getKey())) {
+                    sb.append(entry.getValue());
+                    sb.append(" ");
+                } else {
+                    sb.append(line);
+                    sb.append(" ");
+
+                    //System.out.println(line);
+                }
+            }
+        }
+       // System.out.println(sb.toString());
+
+        MyUtils.writeToFile(file, sb.toString());
+        return file;
+    }
+
+   /* File fileContentReplacer(Map<String, String> map){
       return null;
     }
-
+*/
 
 }

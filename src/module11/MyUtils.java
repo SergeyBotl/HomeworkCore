@@ -5,7 +5,7 @@ import java.util.*;
 
 public class MyUtils implements Serializable {
 
-    static File linkFile;
+   // static File linkFile;
     static StringTokenizer st;
     private static String line;
     static StringBuilder sb = new StringBuilder();
@@ -46,7 +46,7 @@ public class MyUtils implements Serializable {
                 sb.append(System.lineSeparator());
                 line = br.readLine();
             }
-            System.out.println(sb);
+           // System.out.println(sb);
 
         } catch (IOException e) {
             System.out.println("Wrong read file");
@@ -54,8 +54,23 @@ public class MyUtils implements Serializable {
         return sb.toString();
     }
 
+  static   void  writeToFile(File file,String s){
+      if (!file.exists()) {
+          createFile(file);
+      }
+
+        try{
+
+            BufferedWriter bw=new BufferedWriter(new FileWriter(file));
+            bw.write(s);
+            bw.close();
+        }catch (IOException e){
+            System.out.println("Wrong write file");
+        }
+
+    }
 //=========================================================================
-    static String convert(Map<String, String> map) {
+  /*  static String convert(Map<String, String> map) {
 
         StringBuilder sb = new StringBuilder();
 
@@ -139,6 +154,6 @@ public class MyUtils implements Serializable {
         }
         return i;
     }
-
+*/
 
 }

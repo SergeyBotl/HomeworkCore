@@ -9,7 +9,7 @@ public class Task11_4 {
 
         //File file = new File(".\\src\\module11\\file1.txt");
         File file = new File("src/module11/file.txt");
-        MyUtils.linkFile =file;
+      //  MyUtils.linkFile =file;
 
        // String content = MyUtils.readFileString();
 
