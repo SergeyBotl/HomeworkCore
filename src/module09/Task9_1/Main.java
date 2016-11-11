@@ -1,4 +1,4 @@
-package module09;
+package module09.Task9_1;
 
 import static Module07.Currency.UAH;
 import static Module07.Currency.USD;
