@@ -6,5 +6,5 @@ public class TextFile {
    "lookaround. In case you want to have the\n" +
     "split character to end up in left hand side,\n"+
     "use positive lookbehind by prefixing ?<= group\n"+
-    "on the pattern.";
+    "on the pattern.\n";
 }

@@ -12,12 +12,9 @@ public class Task11_2 {
     public static void main(String[] args) {
 
         Map<String, String> map = new HashMap<>();
-        map.put("totoo", "to");
+        map.put("to", "totoo");
 
-        File file1 = fileContentReplacer(map);
-        String result = MyUtils.fileToString(file1);
-        System.out.println(result);
-
+       MyUtils.fileToString( fileContentReplacer(map));
 
     }
 
@@ -25,30 +22,25 @@ public class Task11_2 {
         String contentFile = MyUtils.fileToString(file);
         String line;
         StringBuilder sb = new StringBuilder();
-        StringTokenizer st = new StringTokenizer(contentFile, " ");
+        StringTokenizer st = new StringTokenizer(contentFile," ");
         for (Map.Entry entry : map.entrySet()) {
             while (st.hasMoreTokens()) {
-                line = st.nextToken();
-                if (line.equals(entry.getKey())) {
-                    sb.append(entry.getValue());
-                    sb.append(" ");
-                } else {
-                    sb.append(line);
-                    sb.append(" ");
 
-                    //System.out.println(line);
+                line = st.nextToken();
+
+                if (line.equals(entry.getKey())) {
+                    sb.append(" ");
+                    sb.append(entry.getValue());
+
+                } else {
+                    sb.append(" ");
+                    sb.append(line);
+
                 }
             }
         }
-       // System.out.println(sb.toString());
-
+        System.out.println(sb.toString());
         MyUtils.writeToFile(file, sb.toString());
         return file;
     }
-
-   /* File fileContentReplacer(Map<String, String> map){
-      return null;
-    }
-*/
-
 }

@@ -16,9 +16,9 @@ public class Task11_1 {
         Map<String, String> map = new HashMap<>();
         map.put("to", "totoo");
 
-        String result = replacer(map);
+        replacer(map);
 
-        System.out.println(result);
+
    }
 
     private static String replacer(Map<String, String> map) {
@@ -38,6 +38,7 @@ public class Task11_1 {
                 }
             }
         }
+        System.out.println(sb.toString());
         return sb.toString();
     }
 
