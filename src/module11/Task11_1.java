@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 public class Task11_1 {
- private static   File file = new File("src/module11/file.txt");
+    private static File file = new File("src/module11/file.txt");
 
     public static void main(String[] args) {
 
@@ -19,20 +19,20 @@ public class Task11_1 {
         replacer(map);
 
 
-   }
+    }
 
     private static String replacer(Map<String, String> map) {
         String contentFile = MyUtils.fileToString(file);
         String line;
         StringBuilder sb = new StringBuilder();
-        StringTokenizer st =new StringTokenizer(contentFile," ");
-        for (Map.Entry entry:map.entrySet()){
-            while (st.hasMoreTokens()){
-                line= st.nextToken();
-                if (line.equals(entry.getKey())){
+        StringTokenizer st = new StringTokenizer(contentFile, " ");
+        for (Map.Entry entry : map.entrySet()) {
+            while (st.hasMoreTokens()) {
+                line = st.nextToken();
+                if (line.equals(entry.getKey())) {
                     sb.append(entry.getValue());
                     sb.append(" ");
-                }else {
+                } else {
                     sb.append(line);
                     sb.append(" ");
                 }
